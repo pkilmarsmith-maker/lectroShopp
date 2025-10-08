@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+
+<hibernate-configuration>
+    <session-factory>
+        <!-- Configuración de Base de Datos MySQL -->
+        <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/electroshop_db?useSSL=false&amp;serverTimezone=UTC&amp;allowPublicKeyRetrieval=true</property>
+        <property name="hibernate.connection.username">root</property>  <!-- Tu user MySQL -->
+        <property name="hibernate.connection.password"></property>     <!-- Tu pass (vacía si none) -->
+
+        <!-- Dialecto para MySQL -->
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+
+        <!-- Configuración General -->
+        <property name="hibernate.show_sql">true</property>              <!-- Muestra SQL en consola -->
+        <property name="hibernate.format_sql">true</property>            <!-- Formatea SQL -->
+        <property name="hibernate.hbm2ddl.auto">update</property>        <!-- Crea/actualiza tablas auto -->
+        <property name="hibernate.current_session_context_class">thread</property>
+
+        <!-- Mappings de Entidades (Fase II + III) – Agrega todas tus clases -->
+        <mapping class="com.electroshop.model.Categoria"/>  <!-- O Categorias si es plural -->
+        <mapping class="com.electroshop.model.Producto"/>
+        <mapping class="com.electroshop.model.Usuario"/>
+        <mapping class="com.electroshop.model.Pedidos"/>
+        <mapping class="com.electroshop.model.CarritoItem"/>  <!-- Nueva para Fase III -->
+
+
+    </session-factory>
+</hibernate-configuration>
